@@ -14,8 +14,10 @@ from PIL import Image
 # In[66]:
 
 
-leftw = pd.read_csv('D:\Downloads\_sub93-lw-s1.csv')
-rightp = pd.read_csv('D:\Downloads\_sub93-rp-s1.csv')
+leftw = pd.read_csv('https://github.com/krishi08/gait-dashboard/blob/main/_sub93-lw-s1.csv')
+rightp = pd.read_csv('https://github.com/krishi08/gait-dashboard/blob/main/_sub93-rp-s1.csv')
+
+# https://github.com/krishi08/gait-dashboard/blob/main/_sub93-lw-s1.csv
 
 
 # In[67]:
