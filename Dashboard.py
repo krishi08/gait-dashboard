@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
+#import numpy as np
 import plost
-from PIL import Image
+#from PIL import Image
 leftw = pd.read_csv('https://github.com/krishi08/gait-dashboard/blob/main/_sub93-lw-s1.csv')
 rightp = pd.read_csv('https://github.com/krishi08/gait-dashboard/blob/main/_sub93-rp-s1.csv')
 st.set_page_config(layout="wide")
