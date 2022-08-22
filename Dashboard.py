@@ -3,8 +3,8 @@ import pandas as pd
 #import numpy as np
 import plost
 #from PIL import Image
-leftw = pd.read_csv('https://github.com/krishi08/gait-dashboard/blob/main/_sub93-lw-s1.csv')
-rightp = pd.read_csv('https://github.com/krishi08/gait-dashboard/blob/main/_sub93-rp-s1.csv')
+leftw = pd.read_csv('https://github.com/krishi08/gait-dashboard/blob/main/_sub93-lw-s1.csv', sep='\t')
+rightp = pd.read_csv('https://github.com/krishi08/gait-dashboard/blob/main/_sub93-rp-s1.csv', sep='\t')
 st.set_page_config(layout="wide")
 leftw = leftw.iloc[:700:]
 a1, a2, a3 = st.columns((3,3,3))
