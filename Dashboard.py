@@ -1,17 +1,19 @@
 import streamlit as st
 import pandas as pd
-#import numpy as np
+import numpy as np
 import plost
-#from PIL import Image
-leftw = pd.read_csv('https://github.com/krishi08/gait-dashboard/blob/main/_sub93-lw-s1.csv', sep='\t')
+from PIL import Image
 
-leftw.columns = leftw.columns.astype(str)
-leftw = leftw.reset_index()
-rightp = pd.read_csv('https://github.com/krishi08/gait-dashboard/blob/main/_sub93-rp-s1.csv', sep='\t')
-
-rightp.columns = rightp.columns.astype(str)
-rightp = rightp.reset_index()
+# Page setting
 st.set_page_config(layout="wide")
+
+with open('style.css') as f:
+    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+leftw = pd.read_csv('https://github.com/krishi08/gait-dashboard/blob/main/_sub93-lw-s1.csv', parse_dates=['Unnamed: 0'])
+
+rightp = pd.read_csv('https://github.com/krishi08/gait-dashboard/blob/main/_sub93-rp-s1.csv', parse_dates=['Unnamed: 0'])
+
 leftw = leftw.iloc[:700:]
 a1, a2, a3 = st.columns((3,3,3))
 with a1:
