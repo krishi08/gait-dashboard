@@ -4,7 +4,9 @@ import pandas as pd
 import plost
 #from PIL import Image
 leftw = pd.read_csv('https://github.com/krishi08/gait-dashboard/blob/main/_sub93-lw-s1.csv', sep='\t')
+leftw = leftw.reset_index()
 rightp = pd.read_csv('https://github.com/krishi08/gait-dashboard/blob/main/_sub93-rp-s1.csv', sep='\t')
+rightp = rightp.reset_index()
 st.set_page_config(layout="wide")
 leftw = leftw.iloc[:700:]
 a1, a2, a3 = st.columns((3,3,3))
