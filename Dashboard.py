@@ -14,7 +14,7 @@ import plost
 # In[2]:
 
 
-leftw = pd.read_csv('D:\Downloads\kneeresults.csv')
+leftw = pd.read_csv('kneeresults.csv')
 
 
 # In[3]:
