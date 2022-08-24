@@ -1,30 +1,56 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
 import streamlit as st
 import pandas as pd
-import numpy as np
+#import numpy as np
 import plost
-from PIL import Image
+#from PIL import Image
+
+
+# In[2]:
+
+
+leftw = pd.read_csv('D:\Downloads\kneeresults.csv')
+
+
+# In[3]:
+
+
+res = leftw[['time', 'Aceeleration_x', 'Acceleration_y', 'Acceleration_Z', 'Gyro_x', 'Gyro_y', 'Gyro_z']] #only acc and gyro, timestamp
+
+
+# In[4]:
+
+
+res = res.replace({"'": ""}, regex=True) 
+res = res.astype(float)
+res['time'] = res['time'].astype(int)
+leftw = res
+
+
+# In[5]:
+
 
 # Page setting
 st.set_page_config(layout="wide")
 
-#with open('style.css') as f:
-#    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
-col_names = ['Unnamed: 0', 'gyroRotationX.rad.s.', 'gyroRotationY.rad.s.', 'gyroRotationZ.rad.s.', 'motionUserAccelerationX.G.', 'motionUserAccelerationY.G.', 'motionUserAccelerationZ.G.']
-leftw = pd.read_csv('https://github.com/krishi08/gait-dashboard/blob/main/_sub93-lw-s1.csv', names=col_names)
-
-rightp = pd.read_csv('https://github.com/krishi08/gait-dashboard/blob/main/_sub93-rp-s1.csv', names=col_names)
-
 leftw = leftw.iloc[:700:]
+
 a1, a2, a3 = st.columns((3,3,3))
 with a1:
     st.markdown('### X-Axis')
-    plost.line_chart(leftw,x='Unnamed: 0',y=('gyroRotationX.rad.s.'[:500],'motionUserAccelerationX.G.'[:500]))
+    plost.line_chart(leftw,x='time',y=('Aceeleration_x','Gyro_x'))
 with a2:
     st.markdown('### Y-Axis')
-    plost.line_chart(leftw,x='Unnamed: 0',y=('gyroRotationX.rad.s.'[:500],'motionUserAccelerationX.G.'[:500]))
+    plost.line_chart(leftw,x='time',y=('Acceleration_y','Gyro_y'))
 with a3:
     st.markdown('### Z-Axis')
-    plost.line_chart(leftw,x='Unnamed: 0',y=('gyroRotationX.rad.s.'[:500],'motionUserAccelerationX.G.'[:500]))
+    plost.line_chart(leftw,x='time',y=('Acceleration_Z','Gyro_z'))
+
 b1, b2 , b3 = st.columns(3)
 b1.metric("Cadence", "73 steps/min", "+8%")
 b2.metric("Stride Length", "1.4 m", "-4%")
