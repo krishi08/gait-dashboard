@@ -9,10 +9,10 @@ st.set_page_config(layout="wide")
 
 #with open('style.css') as f:
 #    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+col_names = ['Unnamed: 0', 'gyroRotationX.rad.s.', 'gyroRotationY.rad.s.', 'gyroRotationZ.rad.s.', 'motionUserAccelerationX.G.', 'motionUserAccelerationY.G.', 'motionUserAccelerationZ.G.']
+leftw = pd.read_csv('https://github.com/krishi08/gait-dashboard/blob/main/_sub93-lw-s1.csv', names=col_names)
 
-leftw = pd.read_csv('https://github.com/krishi08/gait-dashboard/blob/main/_sub93-lw-s1.csv')
-
-rightp = pd.read_csv('https://github.com/krishi08/gait-dashboard/blob/main/_sub93-rp-s1.csv')
+rightp = pd.read_csv('https://github.com/krishi08/gait-dashboard/blob/main/_sub93-rp-s1.csv', names=col_names)
 
 leftw = leftw.iloc[:700:]
 a1, a2, a3 = st.columns((3,3,3))
