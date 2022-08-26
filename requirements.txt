@@ -3,3 +3,5 @@ plost==0.2.5
 boto3==1.24.59
 pkg-config
 scipy==1.5.2
+libblas-dev 
+liblapack-dev
